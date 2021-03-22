@@ -30,11 +30,14 @@ radius = 1.3
 ϕ(x) = ϕ(x[1], x[2])
 ∇ϕ(x) = (2x[1], 2x[2])
 
-f(x) = 1.
+f(x,y) = x^2 + y^2
+f(x) = f(x[1], x[2])
+
+solution = 2π*radius^3
 
 nodes, weights, treeroot = ImplicitSurfaceQuadrature.generatequadrature_and_tree(4, a, b, ϕ)
 int = dot( weights, f.(nodes) )
-println("approx: ", int, ", exact: ", 2π*radius, ", relative error: ", abs((int-2π*radius)/2π*radius))
+println("approx: ", int, ", exact: ", solution, ", relative error: ", abs((int-solution)/solution))
 
 
 plot(aspect_ratio = 1)
