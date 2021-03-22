@@ -34,7 +34,7 @@ f(x) = 1.
 
 nodes, weights, treeroot = ImplicitSurfaceQuadrature.generatequadrature_and_tree(4, a, b, ϕ)
 int = dot( weights, f.(nodes) )
-println("approx: ", int, ", exact: ", 2π*radius, ", relative error: ", (int-2π*radius)/2π*radius)
+println("approx: ", int, ", exact: ", 2π*radius, ", relative error: ", abs((int-2π*radius)/2π*radius))
 
 
 plot(aspect_ratio = 1)
